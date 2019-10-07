@@ -11,11 +11,31 @@
             robotArm.loadLevel("exercise 2");
             
             // Jou instructies volgen hier
-            robotArm.moveRight();
             robotArm.grab();
-            robotArm.moveLeft();
+            for(var getal = 0; getal <= 8; getal ++){
+                robotArm.moveRight();
+            }
             robotArm.drop();
-            
+
+            for(getal = 0; getal <= 4; getal ++){
+                robotArm.moveLeft();
+            }
+            robotArm.grab();
+
+            for(getal = 0; getal <= 4; getal ++){
+                robotArm.moveRight();
+            }
+            robotArm.drop();
+
+            for(getal = 0; getal <= 1; getal ++){
+                robotArm.moveLeft();
+            }
+            robotArm.grab();
+
+            for(getal = 0; getal <= 1; getal ++){
+                robotArm.moveRight();
+            }
+            robotArm.drop();
             // De door jou opgegeven instructies uitvoeren
             robotArm.run();
         </script>
