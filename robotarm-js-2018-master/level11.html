@@ -8,26 +8,33 @@
             var robotArm = new RobotArm(canvas);
             
             // Het level inladen
-            robotArm.loadLevel("exercise 9");
+            robotArm.loadLevel("exercise 11");
             
             // Jou instructies volgen hier
-            var b =1;
 
-            for(var blokjes = 1; blokjes <= 4; blokjes ++){
-                for(var rij = 0; rij < b; rij ++){
+            //de robotarm laten scannen
+            var color = robotArm.scan();
+            console.log(color);
 
+                //naar rechts
+                for(var rechts = 1; rechts <=9; rechts ++){
+                    robotArm.moveRight();
+                }
+                //naar links
+                for(var links = 9; links >=1; links --){
                     robotArm.grab();
-                    for(var rechts = 1; rechts <= 5; rechts ++){
+                    color = robotArm.scan();
+                    if(color == "white"){
                         robotArm.moveRight();
-                    }
                         robotArm.drop();
-                    for(var links = 1; links <= 5; links ++){
                         robotArm.moveLeft();
                     }
+                    else{
+                        robotArm.drop();
+                    }
+                    robotArm.moveLeft();
                 }
-                    b++;
-                    robotArm.moveRight();
-            }
+
             // De door jou opgegeven instructies uitvoeren
             robotArm.run();
         </script>
